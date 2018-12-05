@@ -58,7 +58,7 @@ class CenterLayer extends Component {
               </Heading>
               <Text>Are you sure you want to delete?</Text>
               <Box
-                as="footer"
+                tag="footer"
                 gap="small"
                 direction="row"
                 align="center"
@@ -323,7 +323,7 @@ const ScrollBodyLayer = () => (
         <Box
           direction="row"
           align="center"
-          as="header"
+          tag="header"
           elevation="small"
           justify="between"
         >
@@ -396,7 +396,7 @@ const ScrollBodyLayer = () => (
           <span>body</span>
         </Box>
         <Box
-          as="footer"
+          tag="footer"
           border={{ side: 'top' }}
           pad="small"
           justify="end"
