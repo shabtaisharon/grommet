@@ -211,9 +211,4 @@ storiesOf('Box', module)
   .add('Border', () => <BorderBox />)
   .add('Round', () => <RoundBox />)
   .add('Background', () => <BackgroundBox />)
-  .add('Elevation', () => <ElevationBox />)
-  .add('Tree depth', () => (
-    <Grommet>
-      <Box>hi</Box>
-    </Grommet>
-  ));
+  .add('Elevation', () => <ElevationBox />);
