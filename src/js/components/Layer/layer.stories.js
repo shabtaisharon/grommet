@@ -16,6 +16,7 @@ import {
   TextInput,
 } from 'grommet';
 import { grommet } from 'grommet/themes';
+import { deepMerge } from '../../utils';
 
 class CenterLayer extends Component {
   state = {};
@@ -409,8 +410,23 @@ const ScrollBodyLayer = () => (
   </Grommet>
 );
 
+const darkLayerTheme = deepMerge(grommet, {
+  layer: {
+    background: '#000000',
+  },
+});
+
+const DarkLayer = () => (
+  <Grommet theme={darkLayerTheme}>
+    <Layer>
+      <Text>hi</Text>
+    </Layer>
+  </Grommet>
+);
+
 storiesOf('Layer', module)
   .add('Center', () => <CenterLayer />)
+  .add('Dark', () => <DarkLayer />)
   .add('Form', () => <FormLayer />)
   .add('Notification', () => <NotificationLayer />)
   .add('Margin', () => <MarginLayer full />)
