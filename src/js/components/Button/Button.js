@@ -115,7 +115,7 @@ class Button extends Component {
   }
 }
 
-Object.setPrototypeOf(Button.defaultProps, defaultProps);
+// Object.setPrototypeOf(Button.defaultProps, defaultProps);
 
 let ButtonDoc;
 if (process.env.NODE_ENV !== 'production') {

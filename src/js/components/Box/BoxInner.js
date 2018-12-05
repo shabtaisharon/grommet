@@ -37,7 +37,7 @@ export class BoxInner extends Component {
       background,
       children,
       direction,
-      forwardedRef,
+      innerRef,
       gap,
       responsive,
       tag = 'div',
@@ -83,7 +83,7 @@ export class BoxInner extends Component {
     return (
       <Component
         aria-label={a11yTitle}
-        ref={forwardedRef}
+        ref={innerRef}
         {...removeKeys(rest, boxProps)}
       >
         {contents}

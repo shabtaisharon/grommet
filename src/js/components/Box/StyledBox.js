@@ -524,7 +524,10 @@ const animationStyle = css`
 `;
 
 // NOTE: basis must be after flex! Otherwise, flex overrides basis
-const StyledBox = styled(BoxInner)`
+const StyledBox = styled(BoxInner).attrs(props => ({
+  theme: props.theme,
+  innerRef: props.forwardedRef,
+}))`
   display: flex;
   box-sizing: border-box;
   outline: none;
@@ -604,12 +607,14 @@ StyledBox.defaultProps = {
   pad: 'none',
   responsive: true,
 };
-// Object.setPrototypeOf(StyledBox.defaultProps, defaultProps);
+Object.setPrototypeOf(StyledBox.defaultProps, defaultProps);
 
 const BoxGap = ({ direction, gap, responsive, theme, ...rest }) => (
   <div {...rest} />
 );
-const StyledBoxGap = styled(BoxGap)`
+const StyledBoxGap = styled(BoxGap).attrs(props => ({
+  theme: props.theme,
+}))`
   flex: 0 0 auto;
   ${props =>
     props.gap &&

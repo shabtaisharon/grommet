@@ -1,7 +1,6 @@
-import React, { createRef, Component } from 'react';
+import React from 'react';
 import { storiesOf } from '@storybook/react';
 import { Attraction, Car } from 'grommet-icons';
-import styled from 'styled-components';
 
 import { Grommet, Anchor, Box, Button, Grid, Text } from '..';
 import { grommet } from '../../themes';
@@ -205,27 +204,6 @@ const ElevationBox = () => (
   </Grommet>
 );
 
-const TestWrap = props => {
-  console.log('###', props.theme, props.forwardedRef);
-  return <div ref={props.forwardedRef} {...props} />;
-};
-
-const TestBox = styled(TestWrap)`
-  display: flex;
-  ${props => console.log('###2222', props.theme, props.forwardedRef)};
-`;
-
-class TestApp extends Component {
-  boxRef = createRef();
-  render() {
-    return (
-      <Grommet>
-        <TestBox ref={this.boxRef}>hiii</TestBox>
-      </Grommet>
-    );
-  }
-}
-
 storiesOf('Box', module)
   .add('Simple Box', () => <SimpleBox />)
   .add('Custom color', () => <CustomColorBox />)
@@ -233,5 +211,4 @@ storiesOf('Box', module)
   .add('Border', () => <BorderBox />)
   .add('Round', () => <RoundBox />)
   .add('Background', () => <BackgroundBox />)
-  .add('Elevation', () => <ElevationBox />)
-  .add('Test', () => <TestApp />);
+  .add('Elevation', () => <ElevationBox />);
