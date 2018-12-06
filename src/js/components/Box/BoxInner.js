@@ -8,6 +8,7 @@ import { boxProps } from './doc';
 
 export class BoxInner extends Component {
   static displayName = 'Box';
+  static contextType = ThemeContext;
 
   state = {
     backgroundChanged: false,
@@ -41,10 +42,11 @@ export class BoxInner extends Component {
       gap,
       responsive,
       tag = 'div',
-      theme,
+      theme: propTheme,
       ...rest
     } = this.props;
     const { backgroundChanged } = this.state;
+    const theme = this.context || propTheme;
 
     let contents = children;
     if (gap) {

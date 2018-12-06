@@ -524,9 +524,9 @@ const animationStyle = css`
 `;
 
 // NOTE: basis must be after flex! Otherwise, flex overrides basis
-const StyledBox = styled(BoxInner).attrs(props => ({
-  theme: props.theme,
-  innerRef: props.forwardedRef,
+const StyledBox = styled(BoxInner).attrs(({ theme, forwardedRef }) => ({
+  theme,
+  innerRef: forwardedRef,
 }))`
   display: flex;
   box-sizing: border-box;
