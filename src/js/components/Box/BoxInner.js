@@ -6,7 +6,7 @@ import { ThemeContext } from '../../contexts';
 import { StyledBoxGap } from './StyledBox';
 import { boxProps } from './doc';
 
-export class BoxInner extends Component {
+class BoxInner extends Component {
   static displayName = 'Box';
   static contextType = ThemeContext;
 
@@ -38,7 +38,7 @@ export class BoxInner extends Component {
       background,
       children,
       direction,
-      innerRef,
+      forwardRef,
       gap,
       responsive,
       tag = 'div',
@@ -85,7 +85,7 @@ export class BoxInner extends Component {
     return (
       <Component
         aria-label={a11yTitle}
-        ref={innerRef}
+        ref={forwardRef}
         {...removeKeys(rest, boxProps)}
       >
         {contents}
@@ -93,3 +93,9 @@ export class BoxInner extends Component {
     );
   }
 }
+
+const ForwardedBox = React.forwardRef((props, ref) => (
+  <BoxInner forwardRef={ref} {...props} />
+));
+
+export { ForwardedBox as BoxInner };
